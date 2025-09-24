@@ -308,6 +308,9 @@ $peakHours = $db->query("
           <i class="bi bi-graph-up me-2"></i>Employee Tracker Dashboard
         </h1>
         <div class="header-actions d-flex align-items-center gap-3">
+          <a href="scraping_manager.php" class="btn btn-warning" title="Web Scraping System">
+            <i class="bi bi-globe me-1"></i>Web Scraping
+          </a>
           <span class="text-white">Welcome, <?php echo htmlspecialchars($_SESSION['admin_username']); ?></span>
           <form method="POST" class="d-inline">
             <button type="submit" name="logout" class="btn btn-secondary-custom">
@@ -317,7 +320,35 @@ $peakHours = $db->query("
         </div>
       </div>
     </div>
-  </header> <!-- Main Container -->
+  </header>
+
+  <!-- Quick Navigation Ribbon -->
+  <div class="bg-white border-bottom shadow-sm">
+    <div class="container-xxl">
+      <div class="d-flex align-items-center py-2 gap-3">
+        <span class="text-muted small">Quick Access:</span>
+        <a href="scraping_manager.php" class="btn btn-outline-primary btn-sm">
+          <i class="bi bi-globe me-1"></i>Web Scraping
+        </a>
+        <a href="decrypt.php" class="btn btn-outline-secondary btn-sm">
+          <i class="bi bi-unlock me-1"></i>Decrypt Files
+        </a>
+        <a href="duplicate_cleaner.php" class="btn btn-outline-warning btn-sm">
+          <i class="bi bi-funnel me-1"></i>Clean Duplicates
+        </a>
+        <a href="../employee/upload.php" class="btn btn-outline-success btn-sm" target="_blank">
+          <i class="bi bi-upload me-1"></i>Employee Upload
+        </a>
+        <div class="ms-auto">
+          <span class="badge bg-info">
+            <i class="bi bi-lightning-fill me-1"></i>NEW: Web Scraping Available!
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Container -->
   <div class="container-xxl py-4">
     <?php if (isset($success_message)): ?>
       <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -486,7 +517,7 @@ $peakHours = $db->query("
       </div>
     </div> <!-- Stats Grid -->
     <div class="row mb-4">
-      <div class="col-md-3">
+      <div class="col-md-2">
         <div class="card stat-card text-center">
           <div class="card-body">
             <div class="stat-number"><?php echo number_format($stats['total_reports']); ?></div>
@@ -494,7 +525,7 @@ $peakHours = $db->query("
           </div>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-2">
         <div class="card stat-card text-center">
           <div class="card-body">
             <div class="stat-number"><?php echo number_format($stats['total_employees']); ?></div>
@@ -502,7 +533,7 @@ $peakHours = $db->query("
           </div>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-2">
         <div class="card stat-card text-center">
           <div class="card-body">
             <div class="stat-number"><?php echo formatFileSize($stats['total_size']); ?></div>
@@ -510,11 +541,22 @@ $peakHours = $db->query("
           </div>
         </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-2">
         <div class="card stat-card text-center">
           <div class="card-body">
             <div class="stat-number"><?php echo number_format($stats['total_rows']); ?></div>
             <div class="stat-label">Website Visits</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card stat-card text-center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+          <div class="card-body">
+            <div class="stat-number" style="color: white;"><i class="bi bi-globe" style="font-size: 2em;"></i></div>
+            <div class="stat-label" style="color: white; margin-bottom: 15px;">Web Scraping System</div>
+            <a href="scraping_manager.php" class="btn btn-light btn-sm">
+              <i class="bi bi-arrow-right me-1"></i>Start Scraping
+            </a>
           </div>
         </div>
       </div>
@@ -525,6 +567,9 @@ $peakHours = $db->query("
           <i class="bi bi-folder me-2"></i>Employee Reports (<?php echo count($reports); ?> found)
         </h5>
         <div class="d-flex gap-2">
+          <a href="scraping_manager.php" class="btn btn-info btn-sm">
+            <i class="bi bi-globe me-1"></i>Web Scraping
+          </a>
           <a href="duplicate_cleaner.php" class="btn btn-warning btn-sm">
             <i class="bi bi-funnel me-1"></i>Clean Duplicates
           </a>
